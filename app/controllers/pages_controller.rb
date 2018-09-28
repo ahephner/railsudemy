@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def home
     #@something is a var
     @post = Blog.all 
+    @skills = Skill.all 
   end
 
   def about
