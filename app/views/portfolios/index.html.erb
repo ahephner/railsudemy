@@ -12,4 +12,6 @@
     <%= image_tag x.second_image unless x.second_image.nil? %>
     <!--Pass into the path the id from the iteration-->
     <%=link_to "Edit", edit_portfolio_path(x) %>
+    <!--Without the method: :delete it would think it is the show page notice the paths are the same-->
+    <%= link_to 'Delete Item', portfolio_path(x), method: :delete, data: { confirm: 'Are you sure?' } %>
 <%end%>
