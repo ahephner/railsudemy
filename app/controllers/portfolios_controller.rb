@@ -4,6 +4,27 @@ class PortfoliosController < ApplicationController
         @port_items = Portfolio.all 
     end
 
+        #only renders does not create!
+    def new
+        @port_items = Portfolio.new
+    end
+
+    def create                                                          #these are what allowed into system
+        @port_items = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body))
+    
+        respond_to do |format|
+          #if blog is valid
+          if @port_items.save
+            #redirect_to portfolio main page. use rake routes to see where you can send
+            format.html { redirect_to portfolios_path, notice: 'Your Portfolio was successfully created.' }
+            #dont need this to get up and running its for api
+            #format.json { render :show, status: :created, location: @blog }
+          else
+            format.html { render :new }
+            Eformat.json { render json: @blog.errors, status: :unprocessable_entity }
+          end
+        end
+    end
 
 
 
