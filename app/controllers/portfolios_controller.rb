@@ -26,7 +26,23 @@ class PortfoliosController < ApplicationController
         end
     end
 
-
+    def edit
+        #tell it what one to look up based on URI like portfolio/1/edit - the 1 is the id 
+        @port_items = Portfolio.find(params[:id])
+    end
+    def update
+        @port_items = Portfolio.find(params[:id])
+        
+        respond_to do |format|
+          if @port_items.update(params.require(:portfolio).permit(:title, :subtitle, :body))
+            format.html { redirect_to portfolios_path, notice: 'Portoflio was successfully updated.' }
+            #format.json { render :show, status: :ok, location: @blog }
+          else
+            format.html { render :edit }
+            #format.json { render json: @blog.errors, status: :unprocessable_entity }
+          end
+        end
+      end
 
     
 end

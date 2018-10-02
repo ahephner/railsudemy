@@ -1,10 +1,14 @@
 <h1>Portfolio Home page</h1>
 
 <h1>Posts</h1>
+<!--Rails way to create a path to another page-->
+<%=link_to "Create a New Item", new_portfolio_path%>
+
 <% @port_items.each do |x| %>
     <p><%=x.title%></p>
     <p><%=x.subtitle%></p>
     <p><%=x.body%></p>
     <!--run this unless the image is nil --> 
     <%= image_tag x.second_image unless x.second_image.nil? %>
+    <%=link_to "Edit", edit_portfolio_path(x) %>
 <%end%>
