@@ -1,5 +1,9 @@
 <h1>Portfolio Home page</h1>
 
-
 <h1>Posts</h1>
-<%= @port.inspect%>
+<% @port_items.each do |x| %>
+    <p><%=x.title%></p>
+    <p><%=x.subtitle%></p>
+    <p><%=x.body%></p>
+    <%= image_tag x.second_image%>
+<%end%>

@@ -1,7 +1,7 @@
 class PortfoliosController < ApplicationController
 
     def index
-        @port = Portfolio.all 
+        @port_items = Portfolio.all 
     end
 
 
