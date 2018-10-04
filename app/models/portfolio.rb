@@ -1,5 +1,6 @@
 class Portfolio < ApplicationRecord
-  #4
+    has_many :technologies
+    #4
     include Placeholder
     validates_presence_of :title, :body, :main_image, :second_image
 #1
@@ -16,6 +17,7 @@ class Portfolio < ApplicationRecord
         self.main_image ||= Placeholder.image_generator(height: 350, width: 150)
         self.second_image ||= Placeholder.image_generator(height: 100, width: 50)
     end
+
 end
 
 #1-Scope here we are setting what to return now go to controller and def index @port_items = Portfolio.sql will render only items with subtitle = SQL 
