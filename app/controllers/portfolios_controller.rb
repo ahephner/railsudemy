@@ -1,7 +1,8 @@
 class PortfoliosController < ApplicationController
 
+  #here you can limit what returns like Portfolio.all or Portfolio.where(subtitle: "SQL")
     def index
-        @port_items = Portfolio.all 
+        @port_items = Portfolio.all
     end
 
         #only renders does not create!
