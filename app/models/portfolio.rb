@@ -1,5 +1,8 @@
 class Portfolio < ApplicationRecord
     has_many :technologies
+    #5
+    accepts_nested_attributes_for :technologies, 
+                                   reject_if: lambda { |x| x['name'].blank? }
     #4
     include Placeholder
     validates_presence_of :title, :body, :main_image, :second_image
@@ -33,3 +36,6 @@ end
 # are asking for a url to a picture and user provides it and you dont 
 # use ||= then after_initialize would override with the values provided need a savepoint
 #4. from the concern files allows us to copy over the url and pass the height and width
+#5. allows us to create single portfolio item and slide in multiple technologies 
+# reject_if: lambda is code for validation so it wont allow it to save with out a technologies name
+# you can add multiple validations here, however, since we only have the name set up on technologies table thats all I can reject
