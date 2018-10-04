@@ -8,10 +8,11 @@ class PortfoliosController < ApplicationController
         #only renders does not create!
     def new
         @port_items = Portfolio.new
+        3.times {@port_items.technologies.build}
     end
 
     def create                                                          #these are what allowed into system
-        @port_items = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body))
+        @port_items = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
     
         respond_to do |format|
           #if blog is valid
