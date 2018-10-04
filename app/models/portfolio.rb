@@ -1,4 +1,6 @@
 class Portfolio < ApplicationRecord
+  #4
+    include Placeholder
     validates_presence_of :title, :body, :main_image, :second_image
 #1
     def self.sql
@@ -11,8 +13,8 @@ class Portfolio < ApplicationRecord
     after_initialize :set_defaults 
 
     def set_defaults
-        self.main_image ||= "https://via.placeholder.com/330x150"
-        self.second_image ||= "https://via.placeholder.com/100x50"
+        self.main_image ||= Placeholder.image_generator(height: 350, width: 150)
+        self.second_image ||= Placeholder.image_generator(height: 100, width: 50)
     end
 end
 
@@ -28,3 +30,4 @@ end
 # Without ||= the after_initialize would override any values so if you 
 # are asking for a url to a picture and user provides it and you dont 
 # use ||= then after_initialize would override with the values provided need a savepoint
+#4. from the concern files allows us to copy over the url and pass the height and width
