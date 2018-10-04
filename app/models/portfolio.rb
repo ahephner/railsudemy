@@ -27,4 +27,4 @@ end
 
 # Without ||= the after_initialize would override any values so if you 
 # are asking for a url to a picture and user provides it and you dont 
-# use ||= then after_initialize would override with the values provided
+# use ||= then after_initialize would override with the values provided need a savepoint
