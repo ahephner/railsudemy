@@ -7,6 +7,7 @@
 <p><%=@port_items.body%></p>
 
 <h2>Technologies Used</h2>
+<!--Get just the technologies values-->
 <% @port_items.technologies.each do |t|%>
    <p> <%= t.name %></p>
 <% end %>
