@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :portfolios
   root 'pages#home'
   get 'pages/home'
