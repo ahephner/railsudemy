@@ -14,7 +14,10 @@
     <!--Flash messages needed for devise-->
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
+    <%if session[:source]%>
+    <p>Thanks for visiting me from:  <%= session[:source]%></p>
+    <% end %>
+    
     <% if current_user%>
       <%= link_to "Logout",destroy_user_session_path, method: :delete %>
     <% else %>
