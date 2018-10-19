@@ -11,7 +11,7 @@ class PortfoliosController < ApplicationController
         3.times {@port_items.technologies.build}
     end
 
-    def create                                                          #these are what allowed into system
+    def create                     #from private at the bottom
         @port_items = Portfolio.new(portfolio_params)
     
         respond_to do |format|
@@ -33,6 +33,7 @@ class PortfoliosController < ApplicationController
         @port_items = Portfolio.find(params[:id])
     end
     def update
+                                     #from below private       
         @port_items = Portfolio.find(params[:id])
         
         respond_to do |format|
@@ -60,6 +61,8 @@ class PortfoliosController < ApplicationController
           
         end
       end
+
+#Want to add a new Item to the page have to add it below      
       private 
       def portfolio_params
         params.require(:portfolio).permit(:title, 
