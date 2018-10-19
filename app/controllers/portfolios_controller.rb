@@ -12,7 +12,7 @@ class PortfoliosController < ApplicationController
     end
 
     def create                                                          #these are what allowed into system
-        @port_items = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
+        @port_items = Portfolio.new(portfolio_params)
     
         respond_to do |format|
           #if blog is valid
@@ -36,7 +36,7 @@ class PortfoliosController < ApplicationController
         @port_items = Portfolio.find(params[:id])
         
         respond_to do |format|
-          if @port_items.update(params.require(:portfolio).permit(:title, :subtitle, :body))
+          if @port_items.update(portfolio_params)
             format.html { redirect_to portfolios_path, notice: 'Portoflio was successfully updated.' }
             #format.json { render :show, status: :ok, location: @blog }
           else
@@ -59,5 +59,13 @@ class PortfoliosController < ApplicationController
           format.html { redirect_to portfolios_url, notice: 'Recorded was removed' }
           
         end
+      end
+      private 
+      def portfolio_params
+        params.require(:portfolio).permit(:title, 
+                                          :subtitle, 
+                                          :body, 
+                                          technologies_attributes: [:name]
+                                          )
       end
 end
