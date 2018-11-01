@@ -9,11 +9,14 @@ class BlogsController < ApplicationController
   #on page load could do blog.limit(1) => only bring one back
   def index
     @blogs = Blog.all
+    @page_title = "Blogs"
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
+  #change tab title 
   def show
+    @page_title = @blog.title
   end
 
   # GET /blogs/new
