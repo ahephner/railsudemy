@@ -32,6 +32,7 @@ class PortfoliosController < ApplicationController
     def edit
         #tell it what one to look up based on URI like portfolio/1/edit - the 1 is the id 
         @port_items = Portfolio.find(params[:id])
+        
     end
     def update
                                      #from below private       

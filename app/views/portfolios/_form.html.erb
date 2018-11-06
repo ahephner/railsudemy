@@ -1,0 +1,30 @@
+<%= form_with(model: @port_items, local: true) do |form| %>
+ 
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+<div class="field">
+    <%= form.label :subtitle %>
+    <%= form.text_field :subtitle %>
+  </div>
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <ul>                <!--this mapped from portfolios.rb-->
+    <%=form.fields_for :technologies do |t|%>
+    <li>
+    <%= t.label :name%>
+    <%= t.text_field :name%>
+    </li>
+    <%end%>
+  </ul>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
