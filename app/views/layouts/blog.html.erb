@@ -28,13 +28,6 @@
       <%= link_to "Login", new_user_session_path %>
     <%end %>  
     <%= yield %>
-
-    <div>
-      <div><%= link_to "Home", root_path%></div>
-      <div><%= link_to "About", pages_about_path  %></div>
-      <div><%= link_to "Contact", pages_contact_path%></div>
-      <div><%= link_to "Blogs", blogs_path%></div>
-      <div><%= link_to "Portfolio", portfolios_path%></div>
-    </div>
+<%=render "shared/nav"%>
   </body>
 </html>
