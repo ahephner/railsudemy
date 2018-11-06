@@ -3,6 +3,7 @@
 class BlogsController < ApplicationController
   #calls these methods before it runs it runs these methods if you are going to have repeatable code best to do a before_action
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  layout "blog"
 
   # GET /blogs
   # GET /blogs.json
@@ -23,6 +24,7 @@ class BlogsController < ApplicationController
   #does not actually create a new blog no parameters 
   def new
     @blog = Blog.new
+    @page_title = "New Post"
   end
 
   # GET /blogs/1/edit
