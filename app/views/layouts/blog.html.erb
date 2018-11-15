@@ -17,10 +17,8 @@
     <p class="alert"><%= alert %></p>
 
     
-    <%if session[:source]%>
-    <p>Thanks for visiting me from:  <%= session[:source]%></p>
-    <% end %>
     
+    <%=source_helper%>
     <%=login_helper%>
     
     <%= yield %>
