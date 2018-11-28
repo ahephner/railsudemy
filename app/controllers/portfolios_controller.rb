@@ -3,6 +3,7 @@ class PortfoliosController < ApplicationController
   #here you can limit what returns like Portfolio.all or Portfolio.where(subtitle: "SQL")
     def index
         @port_items = Portfolio.all
+        @page_title = "Portfolio Projects"
     end
 
         #only renders does not create!
@@ -31,6 +32,7 @@ class PortfoliosController < ApplicationController
     def edit
         #tell it what one to look up based on URI like portfolio/1/edit - the 1 is the id 
         @port_items = Portfolio.find(params[:id])
+        
     end
     def update
                                      #from below private       
@@ -49,6 +51,7 @@ class PortfoliosController < ApplicationController
 
     def show
         @port_items = Portfolio.find(params[:id]) 
+        @page_title = @port_items.title 
     end
     def destroy
         #perform look up on id
