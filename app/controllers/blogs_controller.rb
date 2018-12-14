@@ -4,7 +4,9 @@ class BlogsController < ApplicationController
   #calls these methods before it runs it runs these methods if you are going to have repeatable code best to do a before_action
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
   layout "blog"
-
+  #petergate assign what users can use what the :destroy etc are from controller belo
+  #don't want to let user create? put in the except
+  access all: [:show, :index], user: {except: [:destroy, :new, :edit, :create]}, site_admin: :all
   # GET /blogs
   # GET /blogs.json
   #on page load could do blog.limit(1) => only bring one back
