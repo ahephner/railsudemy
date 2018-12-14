@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
-
+  access all: [:show, :index], user: {except: [:destroy, :new, :edit, :create]}, site_admin: :all
   #here you can limit what returns like Portfolio.all or Portfolio.where(subtitle: "SQL")
     def index
         @port_items = Portfolio.all
