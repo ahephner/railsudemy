@@ -7,7 +7,7 @@ module ApplicationHelper
             " ".html_safe +
             (link_to "Login", new_user_session_path, class: style)  
         else 
-            link_to "Logout",destroy_user_session_path,style, method: :delete
+            link_to "Logout",destroy_user_session_path, class: style, method: :delete
         end   
     end    
 
