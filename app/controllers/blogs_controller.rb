@@ -6,7 +6,7 @@ class BlogsController < ApplicationController
   layout "blog"
   #petergate assign what users can use what the :destroy etc are from controller belo
   #don't want to let user create? put in the except
-  access all: [:show, :index], user: {except: [:destroy, :new, :edit, :create]}, site_admin: :all
+  access all: [:show, :index], user: {except: [:destroy, :new, :edit, :create, :toggle_status]}, site_admin: :all
   # GET /blogs
   # GET /blogs.json
   #on page load could do blog.limit(1) => only bring one back
