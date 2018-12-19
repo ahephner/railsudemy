@@ -1,3 +1,12 @@
+<div class="blog-post">
+            <h2 class="blog-post-title"><%= @blog.title %></h2>
+              
+                <p class="blog-post-meta"> <%= @blog.body %></p>
+
+<%= link_to 'Back', blogs_path %>
+</div>
+</div>
+
 <h1>Editing Blog</h1>
 
 <%= render 'form', blog: @blog %>
