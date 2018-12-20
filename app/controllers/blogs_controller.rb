@@ -11,7 +11,7 @@ class BlogsController < ApplicationController
   # GET /blogs.json
   #on page load could do blog.limit(1) => only bring one back
   def index
-    @blogs = Blog.all
+    @blogs = Blog.page(params[:page]).per(5)
     @page_title = "Blogs"
   end
 

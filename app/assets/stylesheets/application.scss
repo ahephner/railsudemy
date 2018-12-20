@@ -1,5 +1,5 @@
 @import "bootstrap";
-
+@import "font-awesome";
 /*
  * Globals
  */
@@ -49,7 +49,7 @@ body {
  * Header
  */
 .masthead {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .masthead-brand {
@@ -122,4 +122,8 @@ body {
 .d-links a{
   color: black; 
   text-align: right; 
+}
+
+.so-links{
+  font-size: 60px; 
 }

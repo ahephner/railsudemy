@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "font-awesome";
 
 /* stylelint-disable selector-list-comma-newline-after */
 
@@ -156,4 +157,10 @@
     font-size: 150%; 
   }
 
- 
+  .blog-main{
+    margin-top: 50px; 
+  }
+ .blog-sidebar{
+   margin-top: 100px; 
+ }
+
