@@ -1,17 +1,31 @@
-<h1>Portfolio Home page</h1>
-
-<h1>Posts</h1>
-<!--Rails way to create a path to another page-->
+<div class="album py-5 bg-light">
+        <div class="container">
 <%=link_to "Create a New Item", new_portfolio_path  if logged_in?(:site_admin)%>
+          <div class="row">
+          <% @port_items.each do |x| %>
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+              
+                <%= image_tag x.main_image unless x.second_image.nil? %>
+                <div class="card-body">
+                  <p class="card-text"><span class ='portTitle'><%= link_to x.title, portfolio_path(x)%></span>
+                  <span class="subTitle"><%=x.subtitle%></span>
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+          
+            </div>
+            <%end%>
+  </div>
+    
+</div>
 
-<% @port_items.each do |x| %>
-    <p><%= link_to x.title, portfolio_path(x)%></p>
-    <p><%=x.subtitle%></p>
-    <p><%=x.body%></p>
-    <!--run this unless the image is nil --> 
-    <%= image_tag x.second_image unless x.second_image.nil? %>
-    <!--Pass into the path the id from the iteration-->
-    <%=link_to "Edit", edit_portfolio_path(x)  if logged_in?(:site_admin)%>
-    <!--Without the method: :delete it would think it is the show page notice the paths are the same-->
-    <%= link_to 'Delete Item', portfolio_path(x), method: :delete, data: { confirm: 'Are you sure?' }  if logged_in?(:site_admin)%>
-<%end%>
+
+<!--Rails way to create a path to another page-->
