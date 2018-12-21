@@ -1,13 +1,13 @@
 
-<!--Without 'if current_user' this throws an error-->
-<h1>Hello <%= current_user.first_name%> !</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+      
 
-<h1>Posts</h1>
-<%= @post.inspect%>
-<h1>Skills</h1>
-<%= @skills.inspect%>
-<hr>
+      <main role="main" class="inner cover">
+        <h1 class="cover-heading">Welcome!</h1>
+        <p class="lead">I am a Software Developer, Business Analyst and professional Google searcher</p>
+        <p class="lead">
+          <%= link_to "About Me", pages_about_path, class: "btn btn-lg btn-secondary" %> 
+        </p>
+      </main>
 
-<!--find type of current user remember divise gives current_user method-->
-<!--<%=current_user.class%>-->
+      
+   

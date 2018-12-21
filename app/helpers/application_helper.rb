@@ -1,11 +1,15 @@
 module ApplicationHelper
-    def login_helper
+    #the style allows us to pass in dynamic classes based on different values 
+    #look at _application_nav.html.erb to see how i passed in the 'nav-link style from the home page'
+    #!!!!Bug fix####
+    #adding the empty = ''  to style method keeps it from having and error when you go to a section without style sets style to null unless changed 
+    def login_helper style = ''
         if current_user.is_a?(GuestUser) 
-            (link_to "Register", new_user_registration_path) +
-            "<br>".html_safe +
-            (link_to "Login", new_user_session_path)  
+            (link_to "Register", new_user_registration_path, class: style) +
+            " ".html_safe +
+            (link_to "Login", new_user_session_path, class: style)  
         else 
-            link_to "Logout",destroy_user_session_path, method: :delete
+            link_to "Logout",destroy_user_session_path, class: style, method: :delete
         end   
     end    
 

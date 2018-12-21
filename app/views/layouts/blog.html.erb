@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><%=@page_title%></title>
     <%= csrf_meta_tags %>
     <meta name="keywords" content= "<%= @seo_keywords %>"/>
@@ -11,17 +13,27 @@
   </head>
 
   <body>
-    
-    <!--Flash messages needed for devise-->
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+         <!--navbar-->
+         <%=render 'shared/blog_nav'%>
+<!--nav end-->
+          
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8 blog-main">
+          <h3 class="pb-3 mb-4 font-italic border-bottom">My blogs</h3>
+            <!--new blog-->  
+            <%= link_to 'Create New Blog', new_blog_path  if logged_in?(:site_admin) %>
+            
+            <%= yield %>
+    <!--sidedbar-->
+            <%=render 'shared/blog_sidebar'%>
+      </div><!-- /.row -->
+   
+    </main><!-- /.container -->
 
+    <%= render 'shared/blog_footer'%>
     
-    
-    <%=source_helper%>
-    <%=login_helper%>
-    
-    <%= yield %>
-<%=render "shared/nav", location: 'bottom'%>
+   </div> 
   </body>
 </html>
