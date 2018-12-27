@@ -1,30 +1,38 @@
 <%= form_with(model: @port_items, local: true) do |form| %>
  
+<div class="row">
+  <div class="col-md-5">
+      <div class="form-group">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <div class="form-group">
+      <%= form.label :subtitle %>
+      <%= form.text_field :subtitle, class: "form-control" %>
+    </div>
   </div>
+  <div class="col-md-7">
+    <div class="form-group">
+      <%= form.label :body %>
+      <%= form.text_area :body, class: "form-control", rows: 13 %>
+    </div>
+  </div>
+</div>
 
-<div class="field">
-    <%= form.label :subtitle %>
-    <%= form.text_field :subtitle %>
-  </div>
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
-
-  <ul>                <!--this mapped from portfolios.rb-->
+<div class="col-md-8">
+  <h2>Technologies Used:</h2>
+  <div>                <!--this mapped from portfolios.rb-->
     <%=form.fields_for :technologies do |t|%>
-    <li>
+    <div class="form-group">
     <%= t.label :name%>
-    <%= t.text_field :name%>
-    </li>
+    <%= t.text_field :name, class: "form-control"%>
+    </div>
     <%end%>
-  </ul>
+  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Save", class: "btn btn-primary form-control" %>
+  </div>
   </div>
 <% end %>

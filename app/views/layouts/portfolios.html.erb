@@ -14,19 +14,11 @@
   <body>
   <div class='container'>
   
-    <%= render 'shared/port_nav'%>
-
+  <%= render "shared/port_nav"%>
+  <!--figure out logged as admin dont show below-->
+  <%= render "shared/port_mast_head" unless logged_in?(:site_admin)%>
     <main role="main">
-     <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">My Portfolios</h1>
-          <p class="lead text-muted">A short sample of some projects I have worked on or created. Github repos are works in progress!</p>
-          <p>
-            <%=  link_to link_to "Resume", pages_about_path, class: " btn btn-primary my-2"%>
-            <%=  link_to link_to "Blogs", blogs_path, class: " btn btn-secondary my-2"%>
-          </p>
-        </div>
-      </section>
+     
           
         <%= yield %>
         <!--FOOTER-->
