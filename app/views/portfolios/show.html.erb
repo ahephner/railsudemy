@@ -1,18 +1,25 @@
-<h1>show</h1>
-
-<%= image_tag @port_items.main_image%>
-
-<h1><%=@port_items.title%><h1>
-<h4><i><%=@port_items.subtitle%></i></h4>
-<p><%=@port_items.body%></p>
-
-<h2>Technologies Used</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+        <%= image_tag @port_items.main_image%>
+        </div>
+        <div class="col-md-5">
+            <h1><%=@port_items.title%><h1>
+            <hr>
+            <h4><i><%=@port_items.subtitle%></i></h4>
+            <p><%=@port_items.body%></p>
+            <h3>Technologies Used</h3>
 <!--Get just the technologies values-->
-<% @port_items.technologies.each do |t|%>
-   <em> <%= t.name %></em>
-<% end %>
- <hr>
- <%= params.inspect%>
- <hr>
-<%= session.inspect %>
+            <% @port_items.technologies.each do |t|%>
+             <p> <em> <%= t.name %></em></p>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
  
