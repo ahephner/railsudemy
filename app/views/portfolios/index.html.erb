@@ -1,7 +1,7 @@
 <div class="album py-5 bg-light">
         <div class="container">
 <%=link_to "Create a New Item", new_portfolio_path  if logged_in?(:site_admin)%>
-          <div class="row">
+          <div class="row sortable">
           <% @port_items.each do |x| %>
             <div class="col-md-4">
               <div class="card mb-4 shadow-sm">
