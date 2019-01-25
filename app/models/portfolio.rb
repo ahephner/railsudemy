@@ -20,6 +20,7 @@ class Portfolio < ApplicationRecord
         self.main_image ||= Placeholder.image_generator(height: 350, width: 150)
         self.second_image ||= Placeholder.image_generator(height: 100, width: 50)
     end
+    #order postion of portfolios
     def self.by_position
         order("position ASC")
     end    
