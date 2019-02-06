@@ -20,7 +20,10 @@ class Portfolio < ApplicationRecord
         self.main_image ||= Placeholder.image_generator(height: 350, width: 150)
         self.second_image ||= Placeholder.image_generator(height: 100, width: 50)
     end
-
+    #order postion of portfolios
+    def self.by_position
+        order("position ASC")
+    end    
 end
 
 #1-Scope here we are setting what to return now go to controller and def index @port_items = Portfolio.sql will render only items with subtitle = SQL 

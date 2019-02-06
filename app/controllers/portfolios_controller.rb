@@ -1,11 +1,18 @@
 class PortfoliosController < ApplicationController
-  access all: [:show, :index], user: {except: [:destroy, :new, :edit, :create]}, site_admin: :all
+  access all: [:show, :index], user: {except: [:destroy, :new, :edit, :create, :sort]}, site_admin: :all
   #here you can limit what returns like Portfolio.all or Portfolio.where(subtitle: "SQL")
     def index
-        @port_items = Portfolio.all
+        @port_items = Portfolio.by_position
         @page_title = "Portfolio Projects"
     end
-
+#note here we have typo on the second value
+    def sort
+      params[:order].each do |key, value|
+        Portfolio.find(value[:id]).update(position: value[:postion])
+      end
+  
+      #render :nothing => true
+    end
         #only renders does not create!
     def new
         @port_items = Portfolio.new
