@@ -3,11 +3,11 @@
 <%=link_to "Create a New Item", new_portfolio_path  if logged_in?(:site_admin)%>
           <div class="row sortable">
           <% @port_items.each do |x| %>
-            <div class="col-md-4">
+            <div class="col-md-4 <%= "move" if logged_in?(:site_admin)%>" data-id='<%=x.id%>' >
               <div class="card mb-4 shadow-sm">
               
                 <%= image_tag x.main_image unless x.second_image.nil? %>
-                <div class="card-body">
+                <div class="card-body" >
                   <p class="card-text"><span class ='portTitle'><%= link_to x.title, portfolio_path(x)%></span>
                   <span class="subTitle"><%=x.subtitle%></span>
                   </p>
