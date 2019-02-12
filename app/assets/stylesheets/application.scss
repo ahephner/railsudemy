@@ -116,8 +116,13 @@ body {
   font-size: 14px; 
 }
 
+.card{
+  background-color: transparent; 
+  border: none; 
+}
 .card-body{
-  color: black; 
+  color: white;
+  
 }
 
 .d-links a{
@@ -161,3 +166,4 @@ body {
 .col{
   font-weight: bold; 
 }
+
