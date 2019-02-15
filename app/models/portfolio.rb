@@ -6,7 +6,9 @@ class Portfolio < ApplicationRecord
     #4
     include Placeholder
     validates_presence_of :title, :body, :main_image, :second_image
-#1
+    mount_uploader :second_image, PortfolioUploader
+    mount_uploader :main_image, PortfolioUploader
+    #1
     def self.sql
         where(subtitle: "SQL")
     end
