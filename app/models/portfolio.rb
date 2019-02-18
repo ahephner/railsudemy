@@ -1,12 +1,14 @@
 class Portfolio < ApplicationRecord
-    has_many :technologies
+    has_many :technologies,  dependent: :nullify
     #5
     accepts_nested_attributes_for :technologies, 
                                    reject_if: lambda { |x| x['name'].blank? }
     #4
     include Placeholder
     validates_presence_of :title, :body, :main_image, :second_image
-#1
+    mount_uploader :second_image, PortfolioUploader
+    mount_uploader :main_image, PortfolioUploader
+    #1
     def self.sql
         where(subtitle: "SQL")
     end
